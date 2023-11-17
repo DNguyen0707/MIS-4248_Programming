@@ -95,13 +95,13 @@ while True:
             sg.popup_ok("Functional Test Failed")
         
         #Recover Right (0) Carrier
-        if RecoverCarrier.run(0):
+        if RecoverCarrier.run():
             window["T1"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
         
         #Recover Left (1) Carrier
-        if RecoverCarrier.run(1):
+        if RecoverCarrier.run():
             window["T2"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
@@ -123,7 +123,6 @@ while True:
             window["T5"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
-        
         
         #Disassemble        
         if Disassemble.run():
