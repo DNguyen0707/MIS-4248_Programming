@@ -19,17 +19,17 @@ sg.set_options(font=('Arial Bold', 16))
 
 image_viewer_column = [
     [sg.Text("Programming Step's Detail:", )],
-    [sg.Text(size=(40, 1), key="-TOUT-")],
+    [sg.Text(size=(40, 1), key="TOUT")],
     [sg.Image(key="-IMAGE-")],
-    [sg.Text('General Requirement: ', size=(27, 1)), sg.Text(key='-GR-')],
-    [sg.Text('Test Setup: ', size=(27, 1)), sg.Text(key='-TS-')],
-    [sg.Text('Recover win & VNC Right Carrier: ', size=(27, 1)), sg.Text(key='-T1-')],
-    [sg.Text('Recover win & VNC Left Carrier: ', size=(27, 1)), sg.Text(key='-T2-')],
-    [sg.Text('Putty Setup Right Carrier Result: ', size=(27, 1)), sg.Text(key='-T3-')],
-    [sg.Text('Putty Setup Left Carrier Result: ', size=(27, 1)), sg.Text(key='-T4-')],
-    [sg.Text('Collect Report Result: ', size=(27, 1)), sg.Text(key='-T5-')],
-    [sg.Text('Disassemble DUTs Result: ', size=(27, 1)), sg.Text(key='-T6-')],
-    [sg.Text('Final Result: ', size=(27, 1)), sg.Text(key='-T7-')]
+    [sg.Text('General Requirement: ', size=(27, 1)), sg.Text(key='GR')],
+    [sg.Text('Test Setup: ', size=(27, 1)), sg.Text(key='TS')],
+    [sg.Text('Recover win & VNC Right Carrier: ', size=(27, 1)), sg.Text(key='T1')],
+    [sg.Text('Recover win & VNC Left Carrier: ', size=(27, 1)), sg.Text(key='T2')],
+    [sg.Text('Putty Setup Right Carrier Result: ', size=(27, 1)), sg.Text(key='T3')],
+    [sg.Text('Putty Setup Left Carrier Result: ', size=(27, 1)), sg.Text(key='T4')],
+    [sg.Text('Collect Report Result: ', size=(27, 1)), sg.Text(key='T5')],
+    [sg.Text('Disassemble DUTs Result: ', size=(27, 1)), sg.Text(key='T6')],
+    [sg.Text('Final Result: ', size=(27, 1)), sg.Text(key='T7')]
 ]
 
 functional_step_column = [
@@ -80,12 +80,56 @@ while True:
             sg.popup_no_buttons('Serial Number of Left Carrier is blank. Please try again by re-running the 727-4248.py', title='Front Page', text_color='#F7F6F2', keep_on_top=True)
             break
         
-        #start setup
+        #import test module
         import Setup
-        setupResult = Setup.run()
-        
-        #Recover Carrier
         import RecoverCarrier
-        recoverResult = RecoverCarrier.run()
+        import PuttySetup
+        import CollectReport
+        import Disassemble
+        
+        #start setup
+        if Setup.run():
+            window["GR"].update("Pass")
+            window["TS"].update("Pass")
+        else:
+            sg.popup_ok("Functional Test Failed")
+        
+        #Recover Right (0) Carrier
+        if RecoverCarrier.run(0):
+            window["T1"].update("Pass")
+        else:
+            sg.popup_ok("Functional Test Failed")
+        
+        #Recover Left (1) Carrier
+        if RecoverCarrier.run(1):
+            window["T2"].update("Pass")
+        else:
+            sg.popup_ok("Functional Test Failed")
+        
+        #Putty Setup Right (0)
+        if PuttySetup.run(0):
+            window["T3"].update("Pass")
+        else:
+            sg.popup_ok("Functional Test Failed")
+        
+        #Putty Setup Left (1)
+        if PuttySetup.run(1):
+            window["T4"].update("Pass")
+        else:
+            sg.popup_ok("Functional Test Failed")
+            
+        #Collect info in WinSCP
+        if CollectReport.run(0):
+            window["T5"].update("Pass")
+        else:
+            sg.popup_ok("Functional Test Failed")
         
         
+        #Disassemble        
+        if Disassemble.run():
+            window["T6"].update("Pass")
+        else:
+            sg.popup_ok("Functional Test Failed")
+        
+        sg.popup_ok("Functional Test Passed")
+        window["T7"].update("Pass")
