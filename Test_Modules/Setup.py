@@ -3,7 +3,7 @@ import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
 import pyautogui as pyautogui  # to screenshot monitor
 
-def run():
+def run(carr = "000000-000000"):
     #Set font
     sg.set_options(font=('Arial Bold', 14))
     
@@ -51,6 +51,10 @@ def run():
                     imageNum = 4
                 case 4:
                     window.close
+                    
+                    # Create a folder for that
+                    Path("Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/" + carr).mkdir(parents=True, exist_ok=True)
+
                     return True
         elif event == "Back":
             match imageNum:
@@ -77,6 +81,8 @@ def run():
                     window.refresh()
                     imageNum = 3
                     
+
+
 if __name__ == "__main__":
     print("Debug Mode")
     run()

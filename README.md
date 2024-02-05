@@ -1,7 +1,7 @@
 # MIS-4248 Programming
 
 ### Notes
-- Create a txt file that save the operator name, program date, ip address of left and right carrier
+- Create a txt file that save the operator name, program date, ip address of left and right carrier. Do this in Setup.py
 - Keep left first then right
 
 ## Test steps

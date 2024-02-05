@@ -88,13 +88,13 @@ while True:
         import Disassemble
         
         #start setup
-        if Setup.run():
+        if Setup.run(carr):
             window["GR"].update("Pass")
             window["TS"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
         
-        #Recover Right (0) Carrier
+        #Recover Right (0) Carrier 
         if RecoverCarrier.run():
             window["T1"].update("Pass")
         else:
