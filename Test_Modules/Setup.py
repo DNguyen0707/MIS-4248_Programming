@@ -50,7 +50,7 @@ def run(carr = "000000-000000"):
                     window.refresh()
                     imageNum = 4
                 case 4:
-                    window.close
+                    window.close()
                     
                     # Create a folder for that
                     Path("Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/" + carr).mkdir(parents=True, exist_ok=True)

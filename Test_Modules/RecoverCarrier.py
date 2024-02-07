@@ -15,7 +15,7 @@ def run():
     sg.set_options(font=('Arial Bold', 16))
 
     picture = [
-        
+        [sg.Image(filename = 'C:/Users/dain/Documents/Github/MIS-4248_Programming/Resources/step1recover.PNG', key='IMAGE1')],
     ]
     
     instruction = [
@@ -31,9 +31,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Recover Carrier', layout, size=(700,600), enable_close_attempted_event=True)
-    
-    retry = 0
+    window = sg.Window('Recover Carrier', layout, size=(725,700), enable_close_attempted_event=True)
     
     while True:
         event, values = window.read()
@@ -92,9 +90,6 @@ def run():
     return IP
 
             
-
-            
-
 def TVNC():
     #lock mouse
     mouse_listener = pynput.mouse.Listener(suppress=True)
@@ -136,6 +131,7 @@ def TVNC():
         #Check if good or not
         final = sg.popup_yes_no("Does it pass the programming?")
         if final:
+            sg.popup_no_buttons("Write the IP into the text box and click Pass to continue")
             return True
         else:
             return False

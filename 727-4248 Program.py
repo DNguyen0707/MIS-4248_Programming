@@ -95,31 +95,30 @@ while True:
             sg.popup_ok("Functional Test Failed")
         
         #Recover Right (0) Carrier 
-        if RecoverCarrier.run():
+        RightIP = RecoverCarrier.run()
+        if RightIP:
             window["T1"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
         
+        #Move to the left
+        sg.popup_ok("Move on to the the Left Carrier. Close the Window to continue")
+        
         #Recover Left (1) Carrier
-        if RecoverCarrier.run():
+        LeftIP = RecoverCarrier.run()
+        if LeftIP:
             window["T2"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
         
-        #Putty Setup Right (0)
-        if PuttySetup.run(0):
+        #Putty Setup for both
+        if PuttySetup.run(snr, snl, RightIP, LeftIP):
             window["T3"].update("Pass")
-        else:
-            sg.popup_ok("Functional Test Failed")
-        
-        #Putty Setup Left (1)
-        if PuttySetup.run(1):
-            window["T4"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
             
         #Collect info in WinSCP
-        if CollectReport.run(0):
+        if CollectReport.run(RightIP, LeftIP):
             window["T5"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
