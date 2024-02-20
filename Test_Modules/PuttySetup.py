@@ -28,9 +28,12 @@ def run(RightSN = '000000', LeftSN = '000000', RightIP = 'google.com', LeftIP = 
     #do left side
     leftSide(LeftSN, LeftIP)
 
-    return True
+    #ask if it's good
+    test7 = sg.popup_yes_no("Do we have all of the correct data?")
+    if test7 == "Yes":    
+        return True
 
-
+    return False
 
 
 def rightSide(RSN, RIP):

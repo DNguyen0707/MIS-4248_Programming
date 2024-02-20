@@ -9,32 +9,8 @@ from pathlib import Path
 def run():
     sg.set_options(font=('Arial Bold', 16))
 
-    picture = [
-        
-    ]
-    
-    instruction = [
-        
-    ]
-    
-    layout = [
-        
-    ]
-    
-    window = sg.Window('Test', layout, size=(700,600), enable_close_attempted_event=True)
-    
-    while True:
-        event, values = window.read()
-        
-        if event == sg.WIN_CLOSED or event == 'Exit':
-            return False
-        elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
-            return False
-        elif event == "Fail":
-            return False
-        elif event == "Pass":
-            window.close()
-            break
+    sg.popup_no_buttons('Detach the J9 cable for both Primary and Secondary DUTs.'
+                            '\nClose the window after done reading', title='Disassemble DUTs', text_color='#F7F6F2', keep_on_top=True, image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\dis.png")
     
     return True
 

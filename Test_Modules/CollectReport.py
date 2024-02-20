@@ -38,7 +38,12 @@ def run(RightIP = 'google.com', LeftIP = 'bing.com', SN = '000000-000000'):
     sg.popup_no_buttons('Verify Primary file has those information in the boxes. Close the window after done reading', title='Collect Data', text_color='#F7F6F2', keep_on_top=True, image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\col6.png")
     sg.popup_no_buttons('Verify Secondary file has those information in the boxes. Close the window after done reading', title='Collect Data', text_color='#F7F6F2', keep_on_top=True, image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\col7.png")
 
-    return True
+    #ask if it's good
+    test7 = sg.popup_yes_no("Do we have all of the correct data?")
+    if test7 == "Yes":    
+        return True
+    
+    return False
 
 def rightSide(RIP, SerialN):
     
@@ -75,7 +80,8 @@ def rightSide(RIP, SerialN):
     time.sleep(1)
     pyautogui.write(zDrive)
     pyautogui.write(SerialN)
-    #ok or enter
+    pyautogui.hotkey('Enter') #ok or enter
+    time.sleep(1)
 
     #finding the other folder
     #double click address bar
@@ -86,7 +92,8 @@ def rightSide(RIP, SerialN):
     time.sleep(1)
     pyautogui.write(usrDrive)
     time.sleep(1)
-    #ok or enter
+    pyautogui.hotkey('Enter') #ok or enter
+    time.sleep(1)
     
     #download
     pyautogui.hotkey('Ctrl', 'a')
@@ -136,7 +143,8 @@ def leftSide(LIP, SerialN):
     time.sleep(1)
     pyautogui.write(zDrive)
     pyautogui.write(SerialN)
-    #ok or enter
+    pyautogui.hotkey('Enter') #ok or enter
+    time.sleep(1)
 
     #finding the other folder
     #double click address bar
@@ -147,7 +155,8 @@ def leftSide(LIP, SerialN):
     time.sleep(1)
     pyautogui.write(usrDrive)
     time.sleep(1)
-    #ok or enter
+    pyautogui.hotkey('Enter') #ok or enter
+    time.sleep(1)
     
     #download
     pyautogui.hotkey('Ctrl', 'a')

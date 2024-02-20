@@ -37,7 +37,7 @@ functional_step_column = [
     [sg.Text('Left Carrier Serial Number: ', size=(22, 1)), sg.InputText(size=(10, 1))],
     [sg.Text('Right Carrier Serial Number: ', size=(22, 1)), sg.InputText(size=(10, 1))],
     [sg.Text('System Serial Number: ', size=(22, 1)), sg.Text(key='-SS-')],
-    [sg.Text('Date: ', size=(22, 1)), sg.Text(key='-DT-')],
+    [sg.Text('Date: ', size=(22, 1)), sg.Text(key='-DT-')], 
 ]
 
 # Full Layout
@@ -80,6 +80,18 @@ while True:
             sg.popup_no_buttons('Serial Number of Left Carrier is blank. Please try again by re-running the 727-4248.py', title='Front Page', text_color='#F7F6F2', keep_on_top=True)
             break
         
+        #clear board
+        window["GR"].update("")
+        window["TS"].update("")
+        window["T1"].update("")
+        window["T2"].update("")
+        window["T3"].update("")
+        window["T4"].update("")
+        window["T5"].update("")
+        window["T6"].update("")
+        window["T7"].update("")
+
+        
         #import test module
         import Setup
         import RecoverCarrier
@@ -118,7 +130,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             
         #Collect info in WinSCP
-        if CollectReport.run(RightIP, LeftIP):
+        if CollectReport.run(RightIP, LeftIP, carr):
             window["T5"].update("Pass")
         else:
             sg.popup_ok("Functional Test Failed")
