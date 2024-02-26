@@ -51,11 +51,11 @@ def run():
         # Test pressing
         if event == "Recover":
             # run recover window
-            subprocess.Popen([r'Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\recovery-windows.bat']) #change address
+            subprocess.Popen([r'Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\recovery-windows.bat']) #change address
             time.sleep(6)
             
             # ask if done
-            result = sg.popup_yes_no("Does it appear with DONE?", title='Recovery Right Carrier', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\done.png") #change address
+            result = sg.popup_yes_no("Does it appear with DONE?", title='Recovery Right Carrier', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\done.png") #change address
             
             #if doesnt work first time
             if result == "No" and retry < 1:
@@ -103,7 +103,7 @@ def TVNC():
     mouse_listener.stop() #unlock mouse
     
     # ask if the menu is on
-    result = sg.popup_yes_no('Is this screen showing?', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\done.png") #replace image
+    result = sg.popup_yes_no('Is this screen showing?', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\done.png") #replace image
     
     if result == "Yes":
         #ask for the IP address

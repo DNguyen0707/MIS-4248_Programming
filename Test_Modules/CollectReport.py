@@ -7,10 +7,11 @@ import time
 from pathlib import Path
 import pynput
 
+
 #common input
 username = 'root'
 password = 'm@xwe11W@sRite'
-zDrive = ''
+zDrive = 'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/'
 usrDrive = '/usr/bollard-base/config/'
 
 
@@ -35,8 +36,8 @@ def run(RightIP = 'google.com', LeftIP = 'bing.com', SN = '000000-000000'):
     leftSide(LeftIP, SN)
     
     #check the files
-    sg.popup_no_buttons('Verify Primary file has those information in the boxes. Close the window after done reading', title='Collect Data', text_color='#F7F6F2', keep_on_top=True, image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\col6.png")
-    sg.popup_no_buttons('Verify Secondary file has those information in the boxes. Close the window after done reading', title='Collect Data', text_color='#F7F6F2', keep_on_top=True, image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\col7.png")
+    sg.popup_no_buttons('Verify Primary file has those information in the boxes. Close the window after done reading', title='Collect Data', text_color='#F7F6F2', keep_on_top=True, image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\col6.png")
+    sg.popup_no_buttons('Verify Secondary file has those information in the boxes. Close the window after done reading', title='Collect Data', text_color='#F7F6F2', keep_on_top=True, image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\col7.png")
 
     #ask if it's good
     test7 = sg.popup_yes_no("Do we have all of the correct data?")
@@ -72,9 +73,8 @@ def rightSide(RIP, SerialN):
     time.sleep(1)
     
     #make it so it auto click the folder
-    #double click address bar
-    #click on the address
-    pyautogui.hotkey('Ctrl', 'a') #ctrl+a
+    pyautogui.click(793, 373)
+    pyautogui.click(793, 373)
     time.sleep(1)
     pyautogui.hotkey('Backspace') #delete
     time.sleep(1)
@@ -84,11 +84,8 @@ def rightSide(RIP, SerialN):
     time.sleep(1)
 
     #finding the other folder
-    #double click address bar
-    #click on the address
-    pyautogui.hotkey('Ctrl', 'a') #ctrl+a
-    time.sleep(1)
-    pyautogui.hotkey('Backspace') #delete
+    pyautogui.click(1360, 373)
+    pyautogui.click(1360, 373)
     time.sleep(1)
     pyautogui.write(usrDrive)
     time.sleep(1)
@@ -135,9 +132,8 @@ def leftSide(LIP, SerialN):
     time.sleep(1)
     
     #make it so it auto click the folder
-    #double click address bar
-    #click on the address
-    pyautogui.hotkey('Ctrl', 'a') #ctrl+a
+    pyautogui.click(793, 373)
+    pyautogui.click(793, 373)
     time.sleep(1)
     pyautogui.hotkey('Backspace') #delete
     time.sleep(1)
@@ -147,9 +143,8 @@ def leftSide(LIP, SerialN):
     time.sleep(1)
 
     #finding the other folder
-    #double click address bar
-    #click on the address
-    pyautogui.hotkey('Ctrl', 'a') #ctrl+a
+    pyautogui.click(1360, 373)
+    pyautogui.click(1360, 373)
     time.sleep(1)
     pyautogui.hotkey('Backspace') #delete
     time.sleep(1)

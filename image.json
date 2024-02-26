@@ -1,0 +1,51 @@
+{
+    "config_format": 1,
+    "autoinstall": false,
+    "name": "Toradex Easy Installer",
+    "description": "Toradex Easy Installer for colibri-imx8x machine",
+    "version": "2.0b6-nightly",
+    "release_date": "20201019",
+    "wrapup_script": "wrapup.sh",
+    "icon": "tezi.png",
+    "isinstaller": true,
+    "supported_product_ids": [
+        "0038",
+        "0050",
+        "0051",
+        "0052"
+    ],
+    "blockdevs": [
+        {
+            "name": "mmcblk0",
+            "partitions": [
+                {
+                    "partition_size_nominal": 128,
+                    "want_maximised": false,
+                    "content": {
+                        "label": "BOOT",
+                        "filesystem_type": "FAT",
+                        "mkfs_options": "",
+                        "filelist": [
+                            "tezi.itb",
+                            "boot.scr"
+                        ],
+                        "uncompressed_size": 35.83955383300781
+                    }
+                }
+            ]
+        },
+        {
+            "name": "mmcblk0boot0",
+            "erase": true,
+            "content": {
+                "filesystem_type": "raw",
+                "rawfiles": [
+                    {
+                        "filename": "imx-boot",
+                        "dd_options": "seek=0"
+                    }
+                ]
+            }
+        }
+    ]
+}

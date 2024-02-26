@@ -55,7 +55,7 @@ def rightSide(RSN, RIP):
         mouse_listener.stop()
         
         #Check if the window popup actually show up
-        result = sg.popup_yes_no('Is this screen showing?', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\done.png") #add screenshot of warning popup
+        result = sg.popup_yes_no('Is this screen showing?', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\done.png") #add screenshot of warning popup
         if result == 'Yes':
             break
         else: 
@@ -122,9 +122,9 @@ def rightSide(RSN, RIP):
     
     #ask for SSID and pass
     global hiddenSSID
-    hiddenSSID = sg.popup_get_text("Enter the ssid:", title='SSID', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\ssidpass.png")
+    hiddenSSID = sg.popup_get_text("Enter the ssid:", title='SSID', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\ssidpass.png")
     global hiddenPASS
-    hiddenPASS = sg.popup_get_text("Enter the passwords:", title='Passwords', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\ssidpass.png")
+    hiddenPASS = sg.popup_get_text("Enter the passwords:", title='Passwords', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\ssidpass.png")
 
     #debug
     print(hiddenSSID)
@@ -152,7 +152,7 @@ def leftSide(LSN, LIP):
         mouse_listener.stop()
         
         #Check if the window popup actually show up
-        result = sg.popup_yes_no('Is this screen showing?', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\727-4248\done.png") #add screenshot of warning popup
+        result = sg.popup_yes_no('Is this screen showing?', image=r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\727-4248 Programming\Resources\done.png") #add screenshot of warning popup
         if result == 'No':
             sg.popup_ok('Close Putty and click ok')
             continue
